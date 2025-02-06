@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+@theme {
+  --color-body: #030712;
+  --color-container: #1a2c38;
+  --color-tile: #2f4553;
+  --color-atile: #557086;
+  --color-leftside: #213744;
+  --color-betbutton: #00e701;
+  --color-abetbutton: #1fff20;
+  --color-rightside: #0f212f;
+}
