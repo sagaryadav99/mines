@@ -3,13 +3,13 @@ import { useState, useRef, useEffect } from "react";
 import { useSound } from "use-sound";
 import diamondsound from "./assets/diamondsound.mp3";
 import bombsound from "./assets/bombsound.mp3";
-import akbetsound from "./assets/akbetsound.mp3";
-import akdiamond from "./assets/akdiamond.mp3";
-import khatam from "./assets/khatambomb.mp3";
+import akbetsound from "./assets/click.mp3";
+import cash from "./assets/cash.mp3";
 function App() {
-  const [bombmp3] = useSound(khatam);
-  const [diamondmp3] = useSound(akdiamond, { interrupt: true });
+  const [bombmp3] = useSound(bombsound);
+  const [diamondmp3] = useSound(diamondsound, { interrupt: true });
   const [betsound] = useSound(akbetsound);
+  const [cashsound] = useSound(cash);
   const [mine, setMine] = useState(1);
   const [newgame, setNewgame] = useState(true);
   const [tiles, setTiles] = useState([]);
@@ -44,6 +44,7 @@ function App() {
     setGameon(true);
   }
   function cashoutonclick() {
+    cashsound();
     setGameon(false);
     const updaterr = tiles.map((item) => ({ ...item, isflipped: true }));
     setShowmodal(true);
