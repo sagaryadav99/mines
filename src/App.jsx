@@ -121,7 +121,7 @@ function App() {
   }
   return (
     <div className="bg-body h-screen flex justify-center">
-      <div className="bg-container h-10/12 mt-10 w-8/12 justify-center p-2 flex flex-col rounded-lg sm:flex-row ">
+      <div className="bg-container h-10/12 mt-10 w-10/12 justify-center p-2 flex flex-col rounded-lg sm:flex-row sm:w-8/12">
         <div className="bg-leftside flex-2 rounded-t-lg p-4 justify-center sm:rounded-l-lg">
           <div className="flex mb-4">
             <div className="bg-body rounded-l-lg text-white font-semibold p-2 w-1/3 ml-auto text-center">
@@ -193,7 +193,7 @@ function App() {
             </div>
           )}
         </div>
-        <div className="bg-rightside relative flex-4 rounded-b-lg grid grid-cols-5 grid-rows-5 gap-x-3 gap-y-3 p-4 sm:rounded-r-lg ">
+        <div className="bg-rightside relative flex-4 rounded-b-lg grid grid-cols-5 grid-rows-5 gap-x-2 gap-y-2 p-3 sm:rounded-r-lg sm:gap-x-3 sm:gap-y-3 sm:p-4">
           {showmodal ? (
             <div className="bg-body w-32 h-32 flex p-12 opacity-60 z-1 absolute top-5/10 left-5/10 -translate-y-7/10 -translate-x-5/10 text-abetbutton rounded-lg border-6 border-abetbutton font-bold">
               x{multiplier}
