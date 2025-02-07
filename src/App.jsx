@@ -18,7 +18,8 @@ function App() {
   const [showmodal, setShowmodal] = useState(false);
   const [greenmines, setGreenmines] = useState(0);
   const [multiplier, setMultiplier] = useState(1);
-  const wallet = useRef(5000);
+  const x = 5000;
+  const wallet = useRef(parseInt(x.toFixed(2)));
   useEffect(() => {
     let updatedarr = randomobjarr(mine);
     setTiles(updatedarr);
@@ -27,18 +28,24 @@ function App() {
     setGreenmines(0);
     setMultiplier(1);
   }, [newgame]);
+  useEffect(() => {
+    const hello = setTimeout(() => {
+      document.getElementById("betamount").focus();
+    }, 2000);
+    return () => clearTimeout(hello);
+  }, [gameon]);
   function betonclick() {
     const nomine = document.getElementById("selectfield").value;
     const amount = document.getElementById("betamount").value;
     if (amount > wallet.current) {
-      alert("insufficient balance:add funds");
+      alert("insufficient balance: add funds");
       return;
     } else if (amount === "") {
       alert("Enter amount");
       return;
     }
     betsound();
-    wallet.current = wallet.current - amount;
+    wallet.current = parseFloat((wallet.current - amount).toFixed(2));
     setMine(nomine);
     setNewgame((x) => !x);
     setGameon(true);
@@ -84,8 +91,9 @@ function App() {
   }, [greenmines]);
 
   function handlemultiplier() {
-    const totalwin = document.getElementById("betamount").value * multiplier;
-    wallet.current = wallet.current + totalwin;
+    const x = parseFloat(document.getElementById("betamount").value);
+    const totalwin = x.toFixed(2) * multiplier;
+    wallet.current = parseFloat((wallet.current + totalwin).toFixed(2));
   }
   function factorial(n) {
     if (n === 0 || n === 1) return 1;
@@ -138,7 +146,7 @@ function App() {
             placeholder="Enter amount"
             max={wallet.current}
             type="Number"
-            className="bg-body rounded-lg text-gray-300 font-semibold p-4 w-1/1"
+            className="bg-body mt-1 mb-2 rounded-lg text-gray-300 font-semibold p-4 w-1/1 transition ease-in-out duration-1000  focus:outline-sky-500 focus:outline-2"
           ></input>
           <div className="text-gray-400">Mines</div>
           <select
