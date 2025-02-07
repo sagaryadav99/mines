@@ -43,6 +43,9 @@ function App() {
     } else if (amount === "") {
       alert("Enter amount");
       return;
+    } else if (amount < 0) {
+      alert("enter valid amount");
+      return;
     }
     betsound();
     wallet.current = parseFloat((wallet.current - amount).toFixed(2));
